@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+</head>
+<body>
+     <div class="container" style="text-align: center">
+         {% include "navbar.html" %}
+
+         <h1>welcome  official website</h1>
+         <form action="/index/" method="POST">
+            {% csrf_token %}
+            <input type="text" name="check">
+            <button>send</button>
+         </form> 
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ullam enim quibusdam vitae 
+             sapiente voluptates natus sequi saepe magnam iste,
+             nobis, aliquid debitis aperiam! Laborum sed maxime 
+             voluptatem quasi! Nesciunt dolor porro totam pariatur harum assumenda, a ea ipsum tempore hic.
+             Doloribus porro, qui nemo impedit nobis eaque accusantium cum?
+        </p>  
+        <button>contact us</button> 
+         {% if isActive %}
+        <div> 
+        <h1>todays date is {{date}}</h1>
+        <h2>name is {{name}}</h2>
+        <hr>
+        <h1>student data</h1>
+        <h2>student name: {{student_data.student_name}}</h2>
+        <h2>student college: {{student_data.student_college}}</h2>
+        <h2>student city: {{student_data.student_city}}</h2>
+        <hr>
+        <h1>favourite programs</h1>
+        
+        {% for i in listofprg %}
+         <h3>{{i}}</h3>
+        {% endfor %}
+        
+       </div>
+       {% endif %}
+     </div> 
+
+</body>
+</html>
